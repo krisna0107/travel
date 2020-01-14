@@ -1,8 +1,37 @@
 import Vue from 'vue'
+import axios from './plugins/axios'
 import App from './App.vue'
+import vuetify from './plugins/vuetify';
+import router from './router'
+// Import the Auth0 configuration
+import { domain, clientId } from "../auth_config.json";
+// Import the plugin here
+import { Auth0Plugin } from "./auth";
+import VueSession from 'vue-session'
+
+// import { email } from './var.js'
+// Vue.prototype.$kdbook = '0'
+
+Vue.use(VueSession)
+
+Vue.use(Auth0Plugin, {
+  domain,
+  clientId,
+  onRedirectCallback: appState => {
+    router.push(
+      appState && appState.targetUrl
+        ? appState.targetUrl
+        : window.location.pathname
+    );
+  }
+});
 
 Vue.config.productionTip = false
 
+
 new Vue({
-  render: h => h(App),
+  vuetify,
+  router,
+  axios,
+  render: h => h(App)
 }).$mount('#app')
