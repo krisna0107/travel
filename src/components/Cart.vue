@@ -90,7 +90,7 @@
           </v-card-text>
           <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green darken-1" text @click="dialog = false">Cencel</v-btn>
+          <v-btn color="green darken-1" text @click="cancelTrf(carts.kd_book); dialog = false">Cencel</v-btn>
           <v-btn color="green darken-1" text @click="konfirmasi(carts.kd_book, carts.user_id, selects); dialog = false">Konfirmasi</v-btn>
           </v-card-actions>
       </v-card>
@@ -117,7 +117,7 @@
           </v-card-text>
           <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green darken-1" text @click="cancelTrf(carts.kd_book); dialogcancel = false">Ok</v-btn>
+          <v-btn color="green darken-1" text @click="dialogcancel = false">Ok</v-btn>
           </v-card-actions>
       </v-card>
       </v-dialog>
@@ -207,8 +207,8 @@ import axios from 'axios'
             })
         },
         cancelTrf(kdbook){
-          axios.get(this.baseurl+"/mids/"+kdbook+"/book/cancel").then(res => {
-              this.dialogcancel = true
+          axios.post(this.baseurl+"/mids/"+kdbook+"/book/cancel").then(res => {
+              // this.dialogcancel = true
               window.console.log(res.data)
             }).catch ((err) => {
                 window.console.log(err);
