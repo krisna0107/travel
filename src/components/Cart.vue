@@ -104,7 +104,20 @@
           </v-card-text>
           <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green darken-1" text @click="dialog = false" to="/">Ok</v-btn>
+          <v-btn color="green darken-1" text @click="dialogbank = false" to="/">Ok</v-btn>
+          </v-card-actions>
+      </v-card>
+      </v-dialog>
+
+      <v-dialog v-model="dialogcancel" persistent max-width="434">
+      <v-card>
+          <v-card-title class="headline">Pembatalan</v-card-title>
+          <v-card-text>
+            Sukses melakukan Pembatalan.
+          </v-card-text>
+          <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="green darken-1" text @click="cancelTrf(carts.kd_book); dialogbank = false" to="/cart">Ok</v-btn>
           </v-card-actions>
       </v-card>
       </v-dialog>
@@ -185,7 +198,17 @@ import axios from 'axios'
                 }).catch ((err) => {
                     window.console.log(err);
                 })
+              }else{
+                this.dialog = true
               }
+              window.console.log(res.data)
+            }).catch ((err) => {
+                window.console.log(err);
+            })
+        },
+        cancelTrf(kdbook){
+          axios.get(this.baseurl+"/mids/"+kdbook+"/book/cancel").then(res => {
+              this.dialogcancel = true
               window.console.log(res.data)
             }).catch ((err) => {
                 window.console.log(err);

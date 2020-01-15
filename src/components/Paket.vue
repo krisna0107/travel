@@ -16,6 +16,7 @@
                 </v-col>
             </v-row>
         </v-container> -->
+        <h1>Paket apa saja yang tersedia?</h1>
         <v-container fluid>
             <v-row dense>
                 <v-col v-for="card in cards" :key="card.title" cols="4">

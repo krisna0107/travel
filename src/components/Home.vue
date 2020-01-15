@@ -1,10 +1,10 @@
 <template>
     <div>
-      <v-carousel hide-delimiters :show-arrows="false" cycle>
+      <v-carousel hide-delimiters :show-arrows="false" cycle height="400">
           <v-carousel-item v-for="(item,i) in items" :key="i" :src="item.src" reverse-transition="fade-transition" transition="fade-transition" style="height:100%;width:auto;"></v-carousel-item>
       </v-carousel>
       <div id="quote">
-        <h1><p>Jelajah Belitong</p></h1>
+        <h1><p>Jelajah Belitung</p></h1>
         <p>Belitung, atau Belitong, dulunya dikenal sebagai Billiton adalah sebuah pulau di lepas pantai timur Sumatra, Indonesia, diapit oleh Selat Gaspar dan Selat Karimata.</p>
         <p>Mari berlibur bersama kami.</p>
       </div>

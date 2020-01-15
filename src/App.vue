@@ -56,9 +56,14 @@ export default {
     padding-bottom: 30px;
   }
   p{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 25px;
     text-align: center;
   }
+}
+
+h1{
+  text-align: center;
+  padding: 20px;
 }
 </style>

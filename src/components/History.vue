@@ -6,13 +6,17 @@
           <th class="text-left">Kode Book</th>
           <th class="text-left">Paket</th>
           <th class="text-left">Tanggal</th>
+          <th class="text-left">Jumlah</th>
+          <th class="text-left">Total Harga</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="item in pesans" :key="item.name">
           <td>{{ item.kd_book }}</td>
           <td>Paket {{ item.konten_id }}</td>
-          <td>Paket {{ item.tanggal }}</td>
+          <td>{{ item.tanggal }}</td>
+          <td>{{ item.jumlah }}</td>
+          <td>{{ item.total_harga }}</td>
         </tr>
       </tbody>
     </template>
